@@ -43,6 +43,7 @@ struct ContentView: View {
 ## Feature Checklist
 - [ ] Adding clock faces
 - [ ] Adding font support
+- [ ] Adding time signal
 
 ## Author
 - BlueSkyAnimal
@@ -50,7 +51,7 @@ struct ContentView: View {
 ## License
 - GNU AGPLv3
 
-## Little Bonus🎁
+## Little Bonus 🎁
 If the argument `date` of Clock is nil... 🙈
 |Light Scheme|Dark Scheme|
 |---|---|
