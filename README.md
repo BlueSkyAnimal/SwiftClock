@@ -10,7 +10,7 @@ struct ContentView: View {
     
     var body: some View {
         TimelineView(.animation) { context in
-            SwiftClock(date: $date)
+            Clock(date: $date)
                 .onChange(of: context.date) { oldValue, newValue in
                     date = newValue
                 }
