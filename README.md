@@ -50,7 +50,7 @@ struct ContentView: View {
 ## License
 - GNU AGPLv3
 
-## Little Bonus
+## Little Bonus🎁
 If the argument `date` of Clock is nil... 🙈
 |Light Scheme|Dark Scheme|
 |---|---|
