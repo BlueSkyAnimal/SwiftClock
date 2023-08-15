@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ClockDial<S>: View where S: ShapeStyle {
+public struct ClockDial<S>: View where S: ShapeStyle {
     var fill: S
     var number: Int
     var frame: CGFloat
@@ -15,7 +15,16 @@ struct ClockDial<S>: View where S: ShapeStyle {
     var inset: CGFloat
     var height: CGFloat
     
-    var body: some View {
+    public init(fill: S, number: Int, frame: CGFloat, offset: CGFloat, inset: CGFloat, height: CGFloat) {
+        self.fill = fill
+        self.number = number
+        self.frame = frame
+        self.offset = offset
+        self.inset = inset
+        self.height = height
+    }
+    
+    public var body: some View {
         Capsule()
             .fill(fill)
             .frame(width: frame / 100, height: height)

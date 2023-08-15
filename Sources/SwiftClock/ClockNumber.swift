@@ -8,11 +8,16 @@
 import SwiftUI
 import MyLibrary
 
-struct ClockNumber: View {
+public struct ClockNumber: View {
     var number: Int
     var frame: CGFloat
     
-    var body: some View {
+    public init(number: Int, frame: CGFloat) {
+        self.number = number
+        self.frame = frame
+    }
+    
+    public var body: some View {
         Text(number < 1 ? String(12) : String(number / 5))
             .font(.system(size: frame / 12))
             .frame(maxWidth: .infinity)

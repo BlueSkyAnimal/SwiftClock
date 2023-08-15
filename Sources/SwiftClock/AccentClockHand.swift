@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct AccentClockHand: View {
+public struct AccentClockHand: View {
     @Binding var date: Date?
     var frame: CGFloat
     var inset: CGFloat
     
-    var body: some View {
+    public init(date: Binding<Date?>, frame: CGFloat, inset: CGFloat) {
+        self._date = date
+        self.frame = frame
+        self.inset = inset
+    }
+    
+    public var body: some View {
         if let date {
             Capsule()
                 .fill(.tint)

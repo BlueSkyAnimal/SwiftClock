@@ -7,14 +7,22 @@
 
 import SwiftUI
 
-struct SolidClockHand: View {
+public struct SolidClockHand: View {
     var hand: HandKind
     @Binding var date: Date?
     var height: CGFloat
     var frame: CGFloat
     var inset: CGFloat
     
-    var body: some View {
+    public init(hand: HandKind, date: Binding<Date?>, height: CGFloat, frame: CGFloat, inset: CGFloat) {
+        self.hand = hand
+        self._date = date
+        self.height = height
+        self.frame = frame
+        self.inset = inset
+    }
+    
+    public var body: some View {
         if let date {
             var rotation: Angle {
                 switch hand {
@@ -41,7 +49,7 @@ struct SolidClockHand: View {
     }
 }
 
-extension SolidClockHand {
+public extension SolidClockHand {
     enum HandKind: CaseIterable, Hashable {
         case hour, minute
     }
