@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct SwiftClock: View {
+public struct Clock: View {
     @Binding var date: Date?
     
     public init(date: Binding<Date?>) {
