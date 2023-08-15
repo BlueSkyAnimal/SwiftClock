@@ -20,7 +20,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SwiftClock"),
+            name: "SwiftClock",
+            dependencies: ["MyLibrary"]),
         .testTarget(
             name: "SwiftClockTests",
             dependencies: ["SwiftClock"]),

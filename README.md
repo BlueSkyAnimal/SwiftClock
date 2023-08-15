@@ -31,8 +31,8 @@ struct ContentView: View {
 - 100% SwiftUI
 
 ## Feature Checklist
-- [] Adding clock faces
-- [] Adding font support
+- [ ] Adding clock faces
+- [ ] Adding font support
 
 ## Author
 - BlueSkyAnimal
