@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct SwiftClock: View {
+public struct SwiftClock: View {
     @Binding var date: Date?
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             
             let frame = min(geometry.size.width, geometry.size.height)
