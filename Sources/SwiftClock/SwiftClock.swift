@@ -10,6 +10,10 @@ import SwiftUI
 public struct SwiftClock: View {
     @Binding var date: Date?
     
+    public init(date: Binding<Date?>) {
+        self._date = date
+    }
+    
     public var body: some View {
         GeometryReader { geometry in
             
