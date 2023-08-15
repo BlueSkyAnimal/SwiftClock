@@ -1,5 +1,5 @@
 //
-//  SwiftClock.swift
+//  Clock.swift
 //  SwiftClock
 //
 //  Created by BlueSkyAnimal on 2023/08/14.

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public struct ClockRotor: View {
+struct ClockRotor: View {
     var frame: CGFloat
     
-    public init(frame: CGFloat) {
+    init(frame: CGFloat) {
         self.frame = frame
     }
     
-    public var body: some View {
+    var body: some View {
         Circle()
             .fill(Color(.solid))
             .frame(width: frame / (60 / 3), height: frame / (60 / 3))

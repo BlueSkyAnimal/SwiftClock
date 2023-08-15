@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Date {
+extension Date {
     var time: Time {
         return .init(self.timeIntervalSince(Calendar.autoupdatingCurrent.date(from: .init(year: 1970)) ?? .now))
     }

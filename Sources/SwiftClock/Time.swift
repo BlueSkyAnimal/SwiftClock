@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-public struct Time {
+struct Time {
     var value: Double
     
-    public init(_ value: TimeInterval) {
+    init(_ value: TimeInterval) {
         self.value = .init(value)
     }
     
