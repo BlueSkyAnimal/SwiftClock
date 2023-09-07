@@ -15,31 +15,34 @@ extension View {
     
     @ViewBuilder
     func background(_ faceStyle: Clock.FaceStyle, in shape: some InsettableShape, fillStyle: FillStyle = FillStyle()) -> some View {
-        switch faceStyle {
-            case .normal:
-                background(Color(.background))
-            case .multicolor(let colors):
-                background {
-                    VStack(spacing: 0) {
-                        ForEach(colors, id: \.self) { $0 }
+        Group {
+            switch faceStyle {
+                case .normal:
+                    background(Color(.background))
+                case .multicolor(let (colors, colorScheme)):
+                    background {
+                        VStack(spacing: 0) {
+                            ForEach(colors, id: \.self) { $0 }
+                        }
                     }
-                }
-            case .image(let (image, scaledToFit)):
-                self.background(Color(.background).opacity(0.2))
-                    .background {
-                        image.resizable()
-                            .transform { content in
-                                if scaledToFit {
-                                    content.scaledToFit()
-                                } else {
-                                    content.scaledToFill()
+                    .environment(\.colorScheme, colorScheme)
+                case .image(let (image, scaledToFit)):
+                    self.background(Color(.background).opacity(0.2))
+                        .background {
+                            image.resizable()
+                                .transform { content in
+                                    if scaledToFit {
+                                        content.scaledToFit()
+                                    } else {
+                                        content.scaledToFill()
+                                    }
                                 }
-                            }
-                    }
-                .background(Color(.background))
-                .clipShape(shape, style: fillStyle)
-                .environment(\.colorScheme, .dark)
+                        }
+                        .background(Color(.background))
+                        .environment(\.colorScheme, .dark)
+            }
         }
+        .clipShape(shape, style: fillStyle)
     }
     
     @ViewBuilder
