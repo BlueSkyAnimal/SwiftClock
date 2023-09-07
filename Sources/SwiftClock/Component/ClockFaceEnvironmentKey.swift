@@ -31,7 +31,7 @@ extension Clock {
     }
     
     struct HandStyleEnvironmentKey: EnvironmentKey {
-        static var defaultValue: HandStyle? = nil
+        static var defaultValue: HandStyle = .normal
     }
     
     struct DialVisibilityEnvironmentKey: EnvironmentKey {
@@ -54,7 +54,7 @@ extension EnvironmentValues {
         set { self[Clock.DialStyleEnvironmentKey.self] = newValue }
     }
     
-    var clockHandStyle: Clock.HandStyle? {
+    var clockHandStyle: Clock.HandStyle {
         get { self[Clock.HandStyleEnvironmentKey.self] }
         set { self[Clock.HandStyleEnvironmentKey.self] = newValue }
     }

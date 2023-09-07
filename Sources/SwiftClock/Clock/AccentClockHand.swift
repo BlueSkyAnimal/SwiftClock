@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccentClockHand: View {
-    @Environment(\.clockHandStyle) private var style
+    @Environment(\.clockHandStyle) private var style: Clock.HandStyle
     
     @Binding var date: Date?
     var frame: CGFloat
@@ -21,10 +21,11 @@ struct AccentClockHand: View {
     }
     
     var length: CGFloat {
-        if style != nil {
-            frame / 2 + inset * 4 - frame / 30
-        } else {
-            frame / 2 + inset * 4
+        switch style {
+            case .normal:
+                frame / 2 + inset * 4
+            case .circle, .triangle, .systemImage(_):
+                frame / 2 + inset * 4 - frame / 30
         }
     }
     
@@ -36,29 +37,27 @@ struct AccentClockHand: View {
                     .frame(width: frame / 120, height: length)
                     .frame(width: frame / 120, height: frame / 2 + inset * 4)
                 
-                if let style {
-                    switch style {
-                        case .normal:
-                            EmptyView()
-                        case .circle:
-                            Circle()
-                                .fill(.tint)
-                                .frame(width: frame / 30, height: frame / 30)
-                        case .triangle:
-                            Triangle()
-                                .fill(.tint)
-                                .frame(width: frame / 30, height: frame / 30)
-                                .rotationEffect(.degrees(180))
-                        case .systemImage(let systemImage):
-                            Image(systemName: systemImage)
-                                .resizable()
-                                .scaledToFit()
-                                .symbolVariant(.fill)
-                                .padding(frame / 180)
-                                .foregroundStyle(Color(.white))
-                                .frame(width: frame / 30, height: frame / 30)
-                                .background(.tint, in: .circle)
-                    }
+                switch style {
+                    case .normal:
+                        EmptyView()
+                    case .circle:
+                        Circle()
+                            .fill(.tint)
+                            .frame(width: frame / 30, height: frame / 30)
+                    case .triangle:
+                        Triangle()
+                            .fill(.tint)
+                            .frame(width: frame / 30, height: frame / 30)
+                            .rotationEffect(.degrees(180))
+                    case .systemImage(let systemImage):
+                        Image(systemName: systemImage)
+                            .resizable()
+                            .scaledToFit()
+                            .symbolVariant(.fill)
+                            .padding(frame / 180)
+                            .foregroundStyle(Color(.white))
+                            .frame(width: frame / 30, height: frame / 30)
+                            .background(.tint, in: .circle)
                 }
             }
             .offset(y: frame / 4 - inset * 3)
