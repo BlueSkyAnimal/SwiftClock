@@ -33,6 +33,11 @@ struct AccentClockHand: View {
         if let date {
             ZStack(alignment: .bottom) {
                 Capsule()
+                    .stroke(Color(.foreground), lineWidth: frame / 60)
+                    .frame(width: frame / 120, height: length)
+                    .frame(width: frame / 120, height: frame / 2 + inset * 4)
+                
+                Capsule()
                     .fill(.tint)
                     .frame(width: frame / 120, height: length)
                     .frame(width: frame / 120, height: frame / 2 + inset * 4)

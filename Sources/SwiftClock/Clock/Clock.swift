@@ -41,7 +41,7 @@ public struct Clock: View {
                     if number.isMultiple(of: 5) {
                         ClockDial(fill: Color(.foreground), number: number, frame: frame, offset: offset, inset: inset, height: height)
                     } else {
-                        ClockDial(fill: .tertiary, number: number, frame: frame, offset: offset, inset: inset, height: height)
+                        ClockDial(fill: Color(.foreground).opacity(0.5), number: number, frame: frame, offset: offset, inset: inset, height: height)
                     }
                     
                     // MARK: - Dial Number

@@ -19,14 +19,16 @@ extension View {
             switch faceStyle {
                 case .normal:
                     background(Color(.background))
-                case .multicolor(let (colors, colorScheme)):
-                    background {
+                case .stripe(let colors, angle: let angle, colorScheme: let colorScheme):
+                    self.background {
                         VStack(spacing: 0) {
                             ForEach(colors, id: \.self) { $0 }
                         }
+                        .rotationEffect(angle)
                     }
+                    .background(Color(.background))
                     .environment(\.colorScheme, colorScheme)
-                case .image(let (image, scaledToFit)):
+                case .image(let image, scaledToFit: let scaledToFit):
                     self.background(Color(.background).opacity(0.2))
                         .background {
                             image.resizable()
