@@ -9,7 +9,7 @@ import SwiftUI
 
 public extension Clock {
     enum FaceStyle {
-        case normal, multicolor(Array<Color>), image(Image)
+        case normal, multicolor(Array<Color>), image(_ image: Image, scaledToFit: Bool = false)
     }
     
     enum DialStyle {

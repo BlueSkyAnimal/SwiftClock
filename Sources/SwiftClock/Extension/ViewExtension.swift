@@ -1,6 +1,6 @@
 //
 //  ViewExtension.swift
-//  
+//
 //
 //  Created by BlueSkyAnimal on 2023/08/16.
 //
@@ -18,8 +18,21 @@ extension View {
         switch faceStyle {
             case .normal, .multicolor(_):
                 background(Color(.background), in: shape, fillStyle: fillStyle)
-            case .image(let image):
-                background { image.resizable().scaledToFill() }
+            case .image(let (image, scaledToFit)):
+                self.background(Color(.background).opacity(0.2))
+                    .background {
+                        image.resizable()
+                            .transform { content in
+                                if scaledToFit {
+                                    content.scaledToFit()
+                                } else {
+                                    content.scaledToFill()
+                                }
+                            }
+                    }
+                .background(Color(.background))
+                .clipShape(shape, style: fillStyle)
+                .environment(\.colorScheme, .dark)
         }
     }
     

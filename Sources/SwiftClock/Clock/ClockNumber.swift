@@ -23,6 +23,7 @@ struct ClockNumber: View {
     var body: some View {
         Text(number < 1 ? String(12) : String(number / 5))
             .font(.system(size: frame / 12, weight: fontWeight, design: fontDesign))
+            .foregroundStyle(Color(.foreground))
             .frame(maxWidth: .infinity)
             .rotationEffect(.degrees(.init(number * -6) + 180))
             .offset(y: frame / 2 - frame / 8)

@@ -64,7 +64,7 @@ public struct Clock: View {
             }
             .rotationEffect(.degrees(180))
             .frame(width: frame, height: frame)
-            .background(in: .circle)
+            .background(faceStyle, in: .circle)
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
         .drawingGroup()
