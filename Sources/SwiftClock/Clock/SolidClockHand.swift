@@ -35,16 +35,16 @@ struct SolidClockHand: View {
             
             Group {
                 Capsule()
-                    .fill(Color(.solid))
+                    .fill(Color(.foreground))
                     .frame(width: frame / 30, height: height - inset * 5)
                     .offset(y: (height + inset * 2) / 2)
                 Capsule()
-                    .fill(Color(.solid))
+                    .fill(Color(.foreground))
                     .frame(width: frame / 60, height: height - inset * 2)
                     .offset(y: (height - inset * 2) / 2)
             }
             .rotationEffect(rotation)
-            .shadow(color: Color(.solid).opacity(0.2), radius: inset)
+            .shadow(color: Color(.foreground).opacity(0.2), radius: inset)
         }
     }
 }

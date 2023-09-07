@@ -42,7 +42,7 @@ struct ContentView: View {
 
 ## Feature Checklist
 - [ ] Adding clock faces
-- [ ] Adding font support
+- [x] Adding font support
 - [ ] Adding time signal
 
 ## Author

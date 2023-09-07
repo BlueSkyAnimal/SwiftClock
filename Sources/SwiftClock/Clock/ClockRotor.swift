@@ -16,14 +16,14 @@ struct ClockRotor: View {
     
     var body: some View {
         Circle()
-            .fill(Color(.solid))
+            .fill(Color(.foreground))
             .frame(width: frame / (60 / 3), height: frame / (60 / 3))
             .zIndex(-1)
         Circle()
             .fill(.tint)
             .frame(width: frame / (60 / 2), height: frame / (60 / 2))
         Circle()
-            .fill(.background)
+            .fill(Color(.background))
             .frame(width: frame / 60, height: frame / 60)
     }
 }

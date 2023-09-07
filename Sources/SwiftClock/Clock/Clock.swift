@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct Clock: View {
+    @Environment(\.clockFaceStyle) private var faceStyle
+    
     @Binding var date: Date?
     
     public init(date: Binding<Date?>) {
@@ -37,7 +39,7 @@ public struct Clock: View {
                     
                     // MARK: - Dial
                     if number.isMultiple(of: 5) {
-                        ClockDial(fill: Color(.solid), number: number, frame: frame, offset: offset, inset: inset, height: height)
+                        ClockDial(fill: Color(.foreground), number: number, frame: frame, offset: offset, inset: inset, height: height)
                     } else {
                         ClockDial(fill: .tertiary, number: number, frame: frame, offset: offset, inset: inset, height: height)
                     }

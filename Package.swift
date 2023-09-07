@@ -15,13 +15,9 @@ let package = Package(
             name: "SwiftClock",
             targets: ["SwiftClock"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/BlueSkyAnimal/MyLibrary.git", branch: "main")
-    ],
     targets: [
         .target(
-            name: "SwiftClock",
-            dependencies: ["MyLibrary"]),
+            name: "SwiftClock"),
         .testTarget(
             name: "SwiftClockTests",
             dependencies: ["SwiftClock"]),
