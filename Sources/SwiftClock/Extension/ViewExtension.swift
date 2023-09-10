@@ -28,17 +28,21 @@ extension View {
                     }
                     .background(Color(.background))
                     .environment(\.colorScheme, colorScheme)
-                case .image(let image, scaledToFit: let scaledToFit):
+                case .image(let data, scaledToFit: let scaledToFit):
                     self.background(Color(.background).opacity(0.2))
                         .background {
-                            image.resizable()
-                                .transform { content in
-                                    if scaledToFit {
-                                        content.scaledToFit()
-                                    } else {
-                                        content.scaledToFill()
+                            if let data,
+                               let image = Image(data: data) {
+                                image
+                                    .resizable()
+                                    .transform { content in
+                                        if scaledToFit {
+                                            content.scaledToFit()
+                                        } else {
+                                            content.scaledToFill()
+                                        }
                                     }
-                                }
+                            }
                         }
                         .background(Color(.background))
                         .environment(\.colorScheme, .dark)

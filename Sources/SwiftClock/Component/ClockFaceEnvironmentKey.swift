@@ -11,7 +11,7 @@ public extension Clock {
     enum FaceStyle {
         case normal,
              stripe(_ colors: Array<Color>, angle: Angle = .zero, colorScheme: ColorScheme = .dark),
-             image(_ image: Image, scaledToFit: Bool = false)
+             image(_ data: Data?, scaledToFit: Bool = false)
     }
     
     enum DialStyle {
